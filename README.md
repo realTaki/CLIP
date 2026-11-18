@@ -6,6 +6,23 @@ CLIP (Contrastive Language-Image Pre-Training) is a neural network trained on a 
 
 
 
+## Graphcore IPU (historical experiments)
+
+This branch collects the fork's historical IPU model, PopTorch/PopART options,
+custom operations, training experiments, and CIFAR-100 evaluation prototype.
+The original OpenAI CLIP code and its MIT license are retained. The Graphcore
+components carry their original notices and the [Apache 2.0 license](LICENSES/Apache-2.0.txt).
+
+The original experiments used the matching Poplar SDK, PopART and PopTorch
+from the Graphcore distribution, plus the Python dependencies listed in
+`requirements-ipu.txt`. The [historical environment notes](step_by_step_guide.md)
+contain machine-specific paths that must be adapted. The Makefile builds the
+custom operations; the IPU configuration in `configs.yml` is `CLIP_IPU`.
+These are research snapshots, not a hardware-validated release. In particular,
+the historical training and CIFAR-100 scripts contain unfinished paths.
+The earlier PopTorch training loop (including optimizer updates and throughput
+reporting) is preserved in `experiments/ipu/train_popdist_snapshot.py`.
+
 ## Approach
 
 ![CLIP](CLIP.png)
@@ -196,3 +213,21 @@ print(f"Accuracy = {accuracy:.3f}")
 ```
 
 Note that the `C` value should be determined via a hyperparameter sweep using a validation split.
+
+### Third-party attribution for the IPU additions
+
+BERT, https://github.com/google-research/bert
+
+Copyright 2018 The Google AI Language Team Authors.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.

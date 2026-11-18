@@ -42,3 +42,6 @@ def recomputationCheckpointWrapper(layer):
         return poptorch.recomputationCheckpoint(layer(*args, **kwargs))
     return recomputationLayer
 
+
+from .ipu_options import get_options
+from .model_ipu import PipelinedWithLoss, PipelinedWithLossForCLIP

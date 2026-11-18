@@ -1,0 +1,6 @@
+-r requirements.txt
+wandb
+numpy
+pandas
+transformers
+PyYAML

@@ -17,3 +17,9 @@ notebooks/data/
 
 jupyter.log
 train*.log
+
+# Graphcore IPU build products and execution reports
+/custom_ops.so
+/custom_ops/plugin_version
+/reports/
+/exe_cache/
