@@ -14,20 +14,13 @@ CLIP (Contrastive Language-Image Pre-Training) is a neural network trained on a 
 
 ## Usage
 
-First, [install PyTorch 1.7.1](https://pytorch.org/get-started/locally/) (or later) and torchvision, as well as small additional dependencies, and then install this repo as a Python package. On a CUDA GPU machine, the following will do the trick:
+[Install PyTorch and torchvision](https://pytorch.org/get-started/locally/) for your CPU or CUDA setup. Then install this checkout and its remaining dependencies:
 
 ```bash
-# GPU
-$ conda install --yes torchvision torchaudio cudatoolkit=11.0 -c pytorch=1.7.1 -c nvidia
-$ pip install ftfy regex tqdm
-$ pip install git+https://github.com/openai/CLIP.git
-
-# IPU
-$ conda install pytorch torchvision torchaudio -c pytorch 
-$ pip install ftfy regex tqdm
+python -m pip install .
 ```
 
-Replace `cudatoolkit=11.0` above with the appropriate CUDA version on your machine or `cpuonly` when installing on a machine without a GPU.
+For the experimental image-text training script, see the [training setup guide](step_by_step_guide.md).
 
 ```python
 import torch
